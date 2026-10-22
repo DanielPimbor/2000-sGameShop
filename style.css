@@ -1,7 +1,48 @@
-div.pontok{
-    background-color: rgb(106, 161, 3);
+body {
+    margin: 0;
+    background-color: #021002;
+    background-image: url(kepek/hatterkep.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
 }
 
+h1 { font-size: 100px; }
+h2 { font-size: 65px; }
+
+.pontok a.fekete-arnyek {
+    text-shadow:
+        0 0 4px #000,
+        0 0 8px #000,
+        0 0 16px #000,
+        0 0 30px #000;
+}
+
+.cim {
+    text-align: center;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.859);
+    text-shadow:
+        0 0 8px #62ff00,
+        0 0 20px #64cf00,
+        0 0 40px #89ff02;
+}
+
+div.pontok {
+    background: linear-gradient(to bottom,
+            rgba(120, 255, 100, 0.05) 51%,
+            rgba(60, 255, 80, 0.2));
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(170, 255, 140, 0.6);
+    box-shadow:
+        inset 0 2px 4px rgba(190, 255, 160, 0.8),
+        0 4px 12px rgba(0, 80, 0, 0.35),
+        0 0 14px rgba(60, 255, 60, 0.4);
+    border-radius: 30px;
+}
 
 .pontok {
     padding: 12px 20px;
@@ -9,27 +50,218 @@ div.pontok{
 }
 
 .pontok a {
-    color: rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, 0.226);
+    color: rgb(228, 255, 211);
+    background: linear-gradient(to bottom,
+            rgba(160, 255, 120, 0.55),
+            rgba(40, 255, 60, 0.15) 50%,
+            rgba(0, 200, 40, 0.1) 51%,
+            rgba(120, 255, 100, 0.35));
 
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
-    
-    border: 2px solid rgb(237, 237, 240);
-    box-shadow: 0px 0px 10px 0px rgb(44, 43, 43);
-    border-radius: 30px;
+
+    border: 2px solid rgba(190, 255, 160, 0.9);
+    border-radius: 999px;
 
     display: inline-block;
     padding: 10px 34px;
-    margin: 10px;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    margin-right: 50px;
+    margin: 10px 50px 10px 10px;
 
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-shadow: 0 1px 3px rgba(0, 60, 0, 0.8);
+
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow:
+        inset 0 2px 4px rgba(200, 255, 170, 0.9),
+        0 4px 12px rgba(0, 80, 0, 0.4),
+        0 0 14px rgba(60, 255, 60, 0.5);
+}
+
+.pontok a::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 8%;
+    width: 84%;
+    height: 45%;
+    border-radius: 999px;
+    background: linear-gradient(to bottom,
+            rgba(220, 255, 200, 0.8),
+            rgba(120, 255, 100, 0.1));
+    pointer-events: none;
 }
 
 .pontok a:hover {
     transform: scale(1.2);
+    box-shadow:
+        inset 0 2px 4px rgba(210, 255, 180, 1),
+        0 6px 18px rgba(0, 80, 0, 0.4),
+        0 0 24px rgba(80, 255, 80, 0.8);
+}
+
+.glowtext {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    text-shadow:
+        0 0 8px #3dff3d,
+        0 0 20px #1fd01f,
+        0 0 40px #0a9a0a;
+}
+
+.akciosav {
+    display: flex;
+    justify-content: center;   /* vízszintesen középre */
+    align-items: center;
+    gap: 30px;                 /* távolság a képek között */
+    flex-wrap: wrap;           /* ha kevés a hely, új sorba törik */
+    margin: 40px auto;
+}
+
+.akciokep {
+    width: 240px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;          /* a kép nem torzul */
+    padding: 10px;
+    border-radius: 20px;
+    background: rgba(60, 255, 80, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(170, 255, 140, 0.6);
+    box-shadow: 0 0 14px rgba(60, 255, 60, 0.4);
+    box-sizing: border-box;     /* a padding nem növeli a méretet */
+}
+
+/* ---------- Galéria ---------- */
+
+.galeria {
+    position: relative;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.ablak {
+    overflow: hidden;
+    padding: 30px 0;
+    touch-action: pan-y;
+    cursor: grab;
+}
+.ablak.huz { cursor: grabbing; }
+
+.sav {
+    position: relative;
+    display: flex;
+    gap: 30px;
+    transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.sav.huz { transition: none; }
+
+.kartya {
+    flex: 0 0 280px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0, 60, 0, 0.8);
+    user-select: none;
+
+    border-radius: 20px;
+    padding: 10px;
+    background: rgba(60, 255, 80, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(170, 255, 140, 0.6);
+    box-shadow: 0 0 14px rgba(60, 255, 60, 0.4);
+
+    transform: scale(0.82);
+    opacity: 0.5;
+    transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+                opacity 0.7s ease,
+                box-shadow 0.7s ease;
+}
+.kartya.aktiv {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 28px rgba(80, 255, 80, 0.8);
+}
+
+.kartya img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    pointer-events: none;
+}
+
+.kartya p {
+    margin: 12px 0 8px;
+    font-size: 18px;
+}
+
+.ar {
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 6px 18px;
+    font-size: 17px;
+    color: #eaffd9;
+    border-radius: 999px;
+    border: 1.5px solid rgba(190, 255, 160, 0.9);
+    background: linear-gradient(to bottom,
+            rgba(160, 255, 120, 0.55),
+            rgba(40, 255, 60, 0.15) 50%,
+            rgba(0, 200, 40, 0.1) 51%,
+            rgba(120, 255, 100, 0.35));
+    text-shadow:
+        0 0 6px #3dff3d,
+        0 0 14px #1fd01f;
+    box-shadow:
+        inset 0 2px 4px rgba(200, 255, 170, 0.9),
+        0 0 10px rgba(60, 255, 60, 0.5);
+}
+
+.nyil {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(190, 255, 160, 0.9);
+    background: rgba(60, 255, 80, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: white;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    transition: box-shadow 0.2s, opacity 0.3s;
+}
+.nyil.bal  { left: 0; }
+.nyil.jobb { right: 0; }
+.nyil:hover { box-shadow: 0 0 18px rgba(80, 255, 80, 0.8); }
+.nyil:disabled { opacity: 0.3; cursor: default; }
+
+.pottyok {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 6px;
+}
+.potty {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(190, 255, 160, 0.9);
+    background: rgba(60, 255, 80, 0.2);
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+.potty.aktiv {
+    background: rgba(120, 255, 100, 0.9);
+    box-shadow: 0 0 10px rgba(80, 255, 80, 0.9);
 }

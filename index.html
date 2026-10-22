@@ -1,17 +1,93 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Játék Kuckó</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
     <div class="pontok">
-        <a href="rolunk">Rólunk</a>
-        <a href="jatekok">Játékaink</a>
-        <a href="akciok">Akciók</a>
-        <a href="ajanlatok">Ajánlataink</a>
+        <a href="#rolunk" style="color: rgb(169, 0, 0);" class="fekete-arnyek">Rólunk</a>
+        <a href="#jatekok" style="color: rgb(65, 141, 255);" class="fekete-arnyek">Játékaink</a>
+        <a href="#akciok" style="color: rgb(11, 224, 11);" class="fekete-arnyek">Akciók</a>
+        <a href="#regisztralj" style="color: yellow;" class="fekete-arnyek">Regisztrálj</a>
     </div>
+
+    <h1 class="cim">Játék Kuckó</h1>
+    <h2 class="cim" id="rolunk">Rólunk</h2>
+    <div>
+        <p style="text-align: center;" class="glowtext">Fedezd fel a 2000-es évek legjobb videojátékait, a klasszikus
+            PC-s kalandoktól a legizgalmasabb konzolos címekig! Nálunk kedvező áron vásárolhatsz eredeti játékokat
+            PC-re, PlayStationre és Xboxra. Válogass kínálatunkból, és éld át újra a játékok aranykorát!</p>
+    </div>
+
+    <h2 class="cim" id="jatekok">Játékaink</h2>
+
+    <section class="galeria">
+        <button class="nyil bal" id="elozo" aria-label="Előző">‹</button>
+
+        <div class="ablak" id="ablak">
+            <div class="sav" id="sav">
+                <div class="kartya">
+                    <img src="kepek/re6.jpg" alt="Resident Evil 6" draggable="false">
+                    <p>Resident Evil 6</p>
+                    <span class="ar">4 990 Ft</span>
+                </div>
+                <div class="kartya">
+                    <img src="kepek/MINECRAFT003.jpg" alt="Minecraft" draggable="false">
+                    <p>Minecraft</p>
+                    <span class="ar">5 990 Ft</span>
+                </div>
+                <div class="kartya">
+                    <img src="kepek/re.jpg" alt="Resident Evil" draggable="false">
+                    <p>Resident Evil</p>
+                    <span class="ar">3 490 Ft</span>
+                </div>
+                <div class="kartya">
+                    <img src="kepek/re4.jpg" alt="Resident Evil 4" draggable="false">
+                    <p>Resident Evil 4</p>
+                    <span class="ar">3 990 Ft</span>
+                </div>
+                <div class="kartya">
+                    <img src="kepek/bioshock.jpeg" alt="BioShock" draggable="false">
+                    <p>BioShock</p>
+                    <span class="ar">4 490 Ft</span>
+                </div>
+                <div class="kartya">
+                    <img src="kepek/gearswar.png" alt="Gears of War 3" draggable="false">
+                    <p>Gears of War 3</p>
+                    <span class="ar">5 490 Ft</span>
+                </div>
+                <div class="kartya">
+                    <img src="kepek/mortalkombat.jpg" alt="Mortal Kombat" draggable="false">
+                    <p>Mortal Kombat</p>
+                    <span class="ar">4 990 Ft</span>
+                </div>
+                <div class="kartya">
+                    <img src="kepek/sonic.jpg" alt="Sonic Adventure DX" draggable="false">
+                    <p>Sonic Adventure DX</p>
+                    <span class="ar">3 990 Ft</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="nyil jobb" id="kovetkezo" aria-label="Következő">›</button>
+
+        <div class="pottyok" id="pottyok"></div>
+    </section>
+
+    <h2 class="cim" id="akciok">Akciók</h2>
+    <p style="text-align: center; font-size: 30px;" class="glowtext">1-et fizet 2-őt vihet</p>
+    <div class="akciosav">
+        <img src="kepek/re6.jpg" class="akciokep" alt="Resident Evil">
+        <img src="kepek/re4.jpg" class="akciokep" alt="Resident Evil">
+    </div>
+    <p style="text-align: center; font-size: 30px;" class="glowtext">3990 Ft - Összesen</p>
+    <h2 class="cim">Regisztrálj</h2>
 </body>
+
 </html>
